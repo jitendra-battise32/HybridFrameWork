@@ -9,6 +9,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.HMS.qa.base.TestBase;
 
+import io.qameta.allure.Step;
+
 public class LoginPage extends TestBase{
 
 	public LoginPage() throws IOException {
@@ -32,22 +34,27 @@ public class LoginPage extends TestBase{
 	@FindBy (xpath ="//*[@class='box-body']")
 	WebElement dashBoardReports;
 
+	@Step("Getting Username")
 	public WebElement usernameMethod() {
 		return userName;	
 	}
 		
+	@Step("Getting Password")
 	public WebElement passwordMethod() {
 		return password;
 	}
 		
+	@Step("Clicking on Login Button")
 	public WebElement loginButtonMethod() {
 		return loginButton;
 	}
 		
+	@Step("Getting Title")
 	public WebElement getTitleMethod() {
 		return title;
 	}
 		
+	@Step("Verifying Dashboard Title")
 	public WebElement dashBoardReportsMethod() {
 		return dashBoardReports;
 	}

@@ -32,10 +32,7 @@ public class Xls_Reader {
 	private XSSFRow row = null;
 	private XSSFCell cell = null;
 
-	
-	
-	
-	
+
 	public Xls_Reader(String path) {
 
 		this.path = path;

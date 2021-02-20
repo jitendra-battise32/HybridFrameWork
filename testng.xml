@@ -3,8 +3,8 @@
 <suite name="HM Test Suite">
 
 <listeners>
-   <listener 
-         class-name = "com.qa.ExtentReportListener.ExtentReporterNG"/>
+   <listener class-name = "com.qa.ExtentReportListener.ExtentReporterNG"/>
+   <listener class-name = "com.HMS.qa.AllureReportListener.AllureReporter"/>
 </listeners>
 
   <test thread-count="5" name="HM Test Cases">

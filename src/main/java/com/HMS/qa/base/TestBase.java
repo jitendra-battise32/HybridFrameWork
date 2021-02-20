@@ -22,6 +22,7 @@ public class TestBase {
     public static Properties prop;
     public static EventFiringWebDriver e_driver;
     public static WebEventListener eventListener;
+    public static ThreadLocal<WebDriver> tdriver = new ThreadLocal<WebDriver>();
     
     public TestBase() throws IOException{
     	prop = new Properties();
@@ -36,7 +37,7 @@ public class TestBase {
 
     }
     
-    public static void initialisationBrowser() throws IOException {
+    public static WebDriver initialisationBrowser() throws IOException {
     	
     	String browserName = prop.getProperty("browser");
 
@@ -76,6 +77,13 @@ public class TestBase {
     	driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
     	
     	driver.get(prop.getProperty("url"));
+    	tdriver.set(driver);
+    	return getDriver();
+    }
+    
+    public static synchronized WebDriver getDriver() {
+    	
+    	return tdriver.get();
     }
 			
 		    
